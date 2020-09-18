@@ -197,7 +197,7 @@ always call <code>sql_render()</code>.</p>
 
 <span class='fu'>select_query</span>(
   <span class='kw'>from</span>,
-  select = <span class='fu'><a href='https://dplyr.tidyverse.org/reference/sql.html'>sql</a></span>(<span class='st'>"*"</span>),
+  select = <span class='fu'><a href='sql.html'>sql</a></span>(<span class='st'>"*"</span>),
   where = <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(),
   group_by = <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(),
   having = <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(),
@@ -243,7 +243,7 @@ queries where a bare table name is ok.</p></td>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>sql_build()</code> is generic over the lazy operations, lazy_ops,
+    <p><code>sql_build()</code> is generic over the lazy operations, <a href='lazy_ops.html'>lazy_ops</a>,
 and generates an S3 object that represents the query. <code>sql_render()</code>
 takes a query object and then calls a function that is generic
 over the database. For example, <code>sql_build.op_mutate()</code> generates

@@ -287,8 +287,8 @@ checking, but do correctly escape their input, and are useful for
 quickly providing default wrappers for a new SQL variant.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>win_over()</code> for helper functions for window functions.</p>
-<p><code><a href='https://dplyr.tidyverse.org/reference/sql.html'>sql()</a></code> for an example of a more customised sql
+    <div class='dont-index'><p><code><a href='win_over.html'>win_over()</a></code> for helper functions for window functions.</p>
+<p><code><a href='sql.html'>sql()</a></code> for an example of a more customised sql
 conversion function.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -303,7 +303,7 @@ conversion function.</p></div>
 )
 
 <span class='co'># Next we have to simulate a connection that uses this variant</span>
-<span class='kw'>con</span> <span class='op'>&lt;-</span> <span class='fu'>simulate_dbi</span>(<span class='st'>"TestCon"</span>)
+<span class='kw'>con</span> <span class='op'>&lt;-</span> <span class='fu'><a href='simulate_dbi.html'>simulate_dbi</a></span>(<span class='st'>"TestCon"</span>)
 <span class='kw'>sql_translate_env.TestCon</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>x</span>) {
   <span class='fu'>sql_variant</span>(
     <span class='kw'>base_scalar</span>,
@@ -312,10 +312,13 @@ conversion function.</p></div>
   )
 }
 
-<span class='fu'>translate_sql</span>(<span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span>(<span class='kw'>x</span>, <span class='kw'>y</span>), con = <span class='kw'>con</span>, window = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; &lt;SQL&gt; cor(`x`, `y`)</div><div class='input'><span class='fu'>translate_sql</span>(<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='kw'>income</span> <span class='op'>/</span> <span class='kw'>years</span>), con = <span class='kw'>con</span>, window = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; &lt;SQL&gt; sd(`income` / `years`)</div><div class='input'>
+<span class='fu'><a href='translate_sql.html'>translate_sql</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span>(<span class='kw'>x</span>, <span class='kw'>y</span>), con = <span class='kw'>con</span>, window = <span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; &lt;SQL&gt; cor(`x`, `y`)</div><div class='input'><span class='fu'><a href='translate_sql.html'>translate_sql</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='kw'>income</span> <span class='op'>/</span> <span class='kw'>years</span>), con = <span class='kw'>con</span>, window = <span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; &lt;SQL&gt; sd(`income` / `years`)</div><div class='input'>
 <span class='co'># Any functions not explicitly listed in the converter will be translated</span>
 <span class='co'># to sql as is, so you don't need to convert all functions.</span>
-<span class='fu'>translate_sql</span>(<span class='fu'>regr_intercept</span>(<span class='kw'>y</span>, <span class='kw'>x</span>), con = <span class='kw'>con</span>)</div><div class='output co'>#&gt; &lt;SQL&gt; regr_intercept(`y`, `x`)</div></pre>
+<span class='fu'><a href='translate_sql.html'>translate_sql</a></span>(<span class='fu'>regr_intercept</span>(<span class='kw'>y</span>, <span class='kw'>x</span>), con = <span class='kw'>con</span>)
+</div><div class='output co'>#&gt; &lt;SQL&gt; regr_intercept(`y`, `x`)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
