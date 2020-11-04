@@ -1,7 +1,7 @@
 Type: Package
 Package: dbplyr
 Title: A 'dplyr' Back End for Databases
-Version: 1.4.4.9000
+Version: 2.0.0.9000
 Authors@R: 
     c(person(given = "Hadley",
              family = "Wickham",
@@ -36,7 +36,8 @@ Imports:
     tibble (>= 1.4.2),
     tidyselect (>= 0.2.4),
     blob (>= 1.2.0),
-    utils
+    utils,
+    withr
 Suggests:
     bit64,
     covr,
@@ -47,8 +48,10 @@ Suggests:
     RMariaDB (>= 1.0.2),
     rmarkdown,
     RPostgres (>= 1.1.3),
+    RPostgreSQL,
     RSQLite (>= 2.1.0),
-    testthat (>= 2.0.0)
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
@@ -68,7 +71,7 @@ Collate:
     'translate-sql-conditional.R'
     'backend-.R'
     'backend-access.R'
-    'backend-athena.R'
+    'backend-hana.R'
     'backend-hive.R'
     'backend-impala.R'
     'backend-mssql.R'
@@ -76,13 +79,18 @@ Collate:
     'backend-odbc.R'
     'backend-oracle.R'
     'backend-postgres.R'
-    'backend-presto.R'
+    'backend-postgres-old.R'
+    'backend-redshift.R'
     'backend-sqlite.R'
     'backend-teradata.R'
     'build-sql.R'
     'data-cache.R'
     'data-lahman.R'
     'data-nycflights13.R'
+    'db-escape.R'
+    'db-io.R'
+    'db-sql.R'
+    'db.R'
     'dbplyr.R'
     'explain.R'
     'ident.R'
@@ -100,6 +108,7 @@ Collate:
     'schema.R'
     'simulate.R'
     'sql-build.R'
+    'sql-clause.R'
     'sql-expr.R'
     'src-sql.R'
     'src_dbi.R'
@@ -107,7 +116,6 @@ Collate:
     'tbl-sql.R'
     'test-frame.R'
     'testthat.R'
-    'translate-sql-clause.R'
     'translate-sql.R'
     'utils-format.R'
     'verb-arrange.R'
@@ -124,6 +132,7 @@ Collate:
     'verb-pull.R'
     'verb-select.R'
     'verb-set-ops.R'
+    'verb-slice.R'
     'verb-summarise.R'
     'verb-window.R'
     'zzz.R'
